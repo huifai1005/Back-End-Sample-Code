@@ -20,7 +20,6 @@ namespace Sabio.Web.Services.Cart
                 {
                     paramCollection.AddWithValue("@UserId", userId);
                     paramCollection.AddWithValue("@ProductId", model.ProductId);     
-
                 }
                 , returnParameters: null);
         }
@@ -42,12 +41,10 @@ namespace Sabio.Web.Services.Cart
             DataProvider.ExecuteCmd(GetConnection, "dbo.Cart_Get_Quantity"
                 , inputParamMapper: delegate (SqlParameterCollection paramCollection) 
                 {
-                    paramCollection.AddWithValue("@UserId", userId);
-                    
+                    paramCollection.AddWithValue("@UserId", userId);                   
                 }
                 , map: delegate (IDataReader reader,short set) 
                 {
-
                     CartItem p = MapCartQuantity(reader);
                     if(cartProductQuantity == null)
                     {
