@@ -31,9 +31,7 @@ namespace Sabio.Web.Controllers.Api
             }
 
             ItemsResponse<BaseProductSales> response = new ItemsResponse<BaseProductSales>();
-
             response.Items = _salesAnalyticsService.Get(model);
-
             return Request.CreateResponse(response);
 
         }
@@ -46,9 +44,7 @@ namespace Sabio.Web.Controllers.Api
             }
 
             ItemsResponse<BaseProductSales> response = new ItemsResponse<BaseProductSales>();
-
             response.Items = _salesAnalyticsService.GetAddonByLGProductId(productId, startDate, endDate);
-
             return Request.CreateResponse(response);
 
         }
@@ -58,17 +54,17 @@ namespace Sabio.Web.Controllers.Api
         {
             ItemsResponse<ProductSales> response = new ItemsResponse<ProductSales>();
             response.Items = _salesAnalyticsService.GetByMonths(productId,year);
-
             return Request.CreateResponse(response);
         }
+        
         [Route("months/allproducts/{year:int}"), HttpGet]
         public HttpResponseMessage GetAllProductsByMonths(int year)
         {
             ItemsResponse<AllProductsMonthlySales> response = new ItemsResponse<AllProductsMonthlySales>();
             response.Items = _salesAnalyticsService.GetAllProductsByMonths(year);
-
             return Request.CreateResponse(response);
         }
+        
         [Route("map"),HttpGet]
         public HttpResponseMessage GetMapSales([FromUri]SalesRequest model)
         {
@@ -78,9 +74,7 @@ namespace Sabio.Web.Controllers.Api
             }
 
             ItemsResponse<SalesMap> response = new ItemsResponse<SalesMap>();
-
             response.Items = _salesAnalyticsService.GetSalesMap(model);
-
             return Request.CreateResponse(response);
         }
 
@@ -93,9 +87,7 @@ namespace Sabio.Web.Controllers.Api
             }
 
             ItemsResponse<SalesMap> response = new ItemsResponse<SalesMap>();
-
             response.Items = _salesAnalyticsService.GetSalesMapByProduct(model,productId);
-
             return Request.CreateResponse(response);
         }
     }
