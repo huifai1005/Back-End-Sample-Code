@@ -25,7 +25,7 @@ BEGIN
 		FROM (SELECT
 			  ProductId,
 			  SUM(Quantity) AS NumberOfSales,
-			  SUM(Cost) AS Revenue,
+			  SUM(Cost * Quantity) AS Revenue,
 			  MONTH(CreatedDate) AS [Month],
 			  YEAR(CreatedDate) AS [Year]
 			FROM dbo.Cart
