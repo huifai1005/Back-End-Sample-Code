@@ -1,8 +1,3 @@
-﻿using Sabio.Web.Domain;
-using Sabio.Web.Models.Requests.Cart;
-using Sabio.Web.Models.Responses;
-using Sabio.Web.Services;
-using Sabio.Web.Services.Cart;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +17,6 @@ namespace Sabio.Web.Controllers.Api
         {
             _userService = userService;
             _cartService = cartService;
-
         }
 
         [Route, HttpPost]
@@ -38,8 +32,8 @@ namespace Sabio.Web.Controllers.Api
             _cartService.Insert(model, currentUserId);
 
             return Request.CreateResponse(HttpStatusCode.OK, response);
-
         }
+        
         [Route("{productId:int}"), HttpPut]
         public HttpResponseMessage Update(CartAddRequest model, int productId)
         {
@@ -54,7 +48,6 @@ namespace Sabio.Web.Controllers.Api
 
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
-
 
         [Route("quantity"), HttpGet]
         public HttpResponseMessage GetQuantity()
