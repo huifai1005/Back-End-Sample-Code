@@ -1,6 +1,3 @@
-﻿using Sabio.Data;
-using Sabio.Web.Domain;
-using Sabio.Web.Models.Requests.Cart;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -116,8 +113,5 @@ namespace Sabio.Web.Services.Cart
                 , returnParameters: null);
         }
           
-    }
-
-
-    
+    } 
 }
